@@ -3,4 +3,4 @@
 At the moment, I'm using:
 1. KBD67 Lite R2 with Gat Yellows
 2. crkbd v3 with Akko Greens
-3. kmonad to customise my laptops
+3. kmonad to customise my laptop keyboards
