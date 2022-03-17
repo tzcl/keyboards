@@ -1,6 +1,6 @@
 * KBD67 Lite R2
 
-[[https://www.youtube.com/watch?v=TspN-VsGTFQ][One of the best budget boards]], the KBD67 Lite is great for started with mechanical keyboards. The 65% layout (67 keys in total) retains the arrow keys so there isn't much of a departure from a full-size keyboard. It comes with RGBs and a hotswap PCB so the build process is relatively simple.
+[[https://www.youtube.com/watch?v=TspN-VsGTFQ][One of the best budget boards]], the KBD67 Lite is great for getting started with mechanical keyboards. The 65% layout (67 keys in total) retains the arrow keys so it isn't too different from a full-size keyboard. It comes with RGBs and a hotswap PCB so the build process is relatively simple.
 
 ** Layout
 On my board, I've kept things simple, sticking with =QWERTY= for my alphas to avoid messing with years of muscle memory. The main QMK features I use are:
