@@ -1,0 +1,38 @@
+* KBD67 Lite R2
+
+[[https://www.youtube.com/watch?v=TspN-VsGTFQ][One of the best budget boards]], the KBD67 Lite is great for people who are started with mechanical keyboards. The 65% layout (67 keys in total) retains the arrow keys so it isn't too different from your usual keyboard. It comes with RGBs and a hotswap PCB the build process is relatively simple.
+
+** Layout
+On my board, I've kept things simple, sticking with =QWERTY= for my alphas to avoid messing with years of muscle memory. The main QMK features I use are:
+1. [[https://getreuer.info/posts/keyboards/caps-word/index.html][Caps word]] to make it nicer to type identifiers like =THIS_IS_A_CONSTANT=
+2. [[https://getreuer.info/posts/keyboards/custom-shift-keys/index.html][Custom shift keys]] to remap =shift + bspc= to =del=
+3. [[https://youtu.be/7f3usatOIKM?t=268][RGB matrix solid reactive multiwide]] for a cool effect when I type
+
+Base layer:
+#+begin_example
+,--------------------------------------------------------------------------------------------------.
+| ~ |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |       \       | Home |
+|-------------------------------------------------------------------------------------------+------+
+| Tab    |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |   BSPC   | End  |
+|-------------------------------------------------------------------------------------------+------+
+| Ctrl/Esc |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |     Enter    | PgUp |
+|-------------------------------------------------------------------------------------------+------+
+| Shift      |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |   Shift    | Up  | PgDn |
++-------------------------------------------------------------------------┬---┬-------------+------+
+| MO(1) | LGUI | LAlt |               Space                 | Btn2 | MO(1)|   | Left  |Down | Right|
+`-------------------------------------------------------------------------┘   └-------------+------´
+#+end_example
+
+Extend layer:
+
+** Compiling and flashing
+These files should go into your =qmk_firmware= directory, under =qmk_firware/keyboards/kbdfans/kbd67/mkiirgb/keymaps=,
+#+begin_src sh
+git clone --single-branch -b kbd67 git@github.com:tzcl/keyboards.git ~/projects/qmk_firmware/keyboards/kbdfans/kbd657/mkiirgb/keymaps/tzcl
+#+end_src
+
+To compile the keymap, the command is
+#+begin_src sh
+qmk compile -kb kbdfans/kbd67/mkiirgb/v2 -km tzcl
+#+end_src
+and you can flash it using =qmk flash= or [[https://github.com/qmk/qmk_toolbox/releases][QMK Toolbox]].
