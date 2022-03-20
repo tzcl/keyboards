@@ -4,9 +4,10 @@
 
 ** Layout
 On my board, I've kept things simple, sticking with =QWERTY= for my alphas to avoid messing with years of muscle memory. The main QMK features I use are:
-1. [[https://getreuer.info/posts/keyboards/caps-word/index.html][Caps word]] to make it nicer to type identifiers like =THIS_IS_A_CONSTANT=
-2. [[https://getreuer.info/posts/keyboards/custom-shift-keys/index.html][Custom shift keys]] to remap =shift + bspc= to =del=
-3. [[https://youtu.be/7f3usatOIKM?t=268][RGB matrix solid reactive multiwide]] for a cool effect when I type
+1. [[https://docs.qmk.fm/#/mod_tap][Mod-tap]] to remap Caps Lock to Escape when tapped and Left Control when held
+2. [[https://getreuer.info/posts/keyboards/caps-word/index.html][Caps word]] to make it nicer to type identifiers like =THIS_IS_A_CONSTANT=
+3. [[https://getreuer.info/posts/keyboards/custom-shift-keys/index.html][Custom shift keys]] to remap =shift + bspc= to =del=
+4. [[https://youtu.be/7f3usatOIKM?t=268][RGB matrix solid reactive multiwide]] for a cool effect when I type
 
 Base layer:
 #+begin_example
@@ -19,7 +20,7 @@ Base layer:
 |-------------------------------------------------------------------------------------------+------+
 | Shift      |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |   Shift    | Up  | End  |
 +-------------------------------------------------------------------------┬---┬-------------+------+
-| MO(1) | LGUI | LAlt |               Space                 | Btn2 | MO(1)|   | Left  |Down | Right|
+| MO(1) | LGUI | LAlt |               Space                 | Btn2 | RCtl |   | Left  |Down | Right|
 `-------------------------------------------------------------------------┘   └-------------+------´
 #+end_example
 
@@ -32,7 +33,7 @@ Extend layer:
 |-------------------------------------------------------------------------------------------+------+
 |          |     |     |     |     |     |     |     |     |     |     |     |    EEP_RST   |      |
 |-------------------------------------------------------------------------------------------+------+
-|            |     |     |     |     |     |     |     |     |     |     |   Pause   | Vol+ | Mute |
+|            |     |     |     |     |     |     |     |     |     |     |Play/Pause | Vol+ | Mute |
 +-------------------------------------------------------------------------┬---┬-------------+------+
 |       |      |      |                                     |      |      |   | Prev | Vol- | Next |
 `-------------------------------------------------------------------------┘   └-------------+------´
