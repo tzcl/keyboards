@@ -1,0 +1,14 @@
+* crkbd
+
+** Layout
+** Compiling and flashing
+These files should go into your =qmk_firmware= directory, under =qmk_firware/keyboards/crkbd/keymaps=,
+#+begin_src sh
+git clone --single-branch -b crkbd git@github.com:tzcl/keyboards.git ~/projects/qmk_firmware/keyboards/crkbd/keymaps/tzcl
+#+end_src
+
+To compile the keymap, the command is
+#+begin_src sh
+qmk compile -kb crkbd/rev1/common -km tzcl
+#+end_src
+and you can flash it using =qmk flash= or [[https://github.com/qmk/qmk_toolbox/releases][QMK Toolbox]].
