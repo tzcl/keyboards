@@ -157,10 +157,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_timer = timer_read32();
                 layer_on(REP_LAYER);
             } else {
+                layer_off(REP_LAYER);
                 if (timer_elapsed32(layer_timer) < TAPPING_TERM) {
                     tap_repeat_key();
                 }
-                layer_off(REP_LAYER);
             }
             return false;
         case SCOPE:
