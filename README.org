@@ -1,7 +1,7 @@
 * Keyboards
 
 I'm currently using:
-1. [[https://github.com/tzcl/keyboards/tree/kbd67][KBD67 Lite R2]] with gat yellows
-2. [[https://github.com/tzcl/keyboards/tree/crkbd][crkbd v3]] with akko matcha greens
+1. [[https://github.com/tzcl/keyboards/tree/kbd67][KBD67 Lite R2]] with Akko Matcha Greens
+2. [[https://github.com/tzcl/keyboards/tree/crkbd][crkbd v3]] with U4T Bobas and Gat Yellows
 
-At some point, I plan to use kmonad to customise my laptop keyboards.
+At some point, I plan to use [[https://github.com/kmonad/kmonad][kmonad]] to customise my laptop keyboards.
