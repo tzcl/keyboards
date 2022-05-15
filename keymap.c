@@ -3,8 +3,7 @@ Copyright 2019 @foostan
 Copyright2020 Drashna Jaelre <@drashna>
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
+it under the terms of the G the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -46,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [SYMS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_QUOT,   KC_LT,   KC_GT, KC_DQUO, KC_AMPR,                        SCOPE,  KC_DOT, KC_LCBR, KC_RCBR, KC_PERC, XXXXXXX,
+      XXXXXXX, KC_QUOT,   KC_LT,   KC_GT, KC_DQUO, KC_AMPR,                        SCOPE, KC_PDOT, KC_LCBR, KC_RCBR, KC_PERC, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_EXLM, KC_MINS, KC_PLUS,  KC_EQL, KC_PIPE,                      KC_COLN, KC_HASH, KC_LPRN, KC_RPRN,   KC_AT, XXXXXXX,
+      XXXXXXX, KC_EXLM, KC_PMNS, KC_PLUS, KC_PEQL, KC_PIPE,                      KC_COLN, KC_HASH, KC_LPRN, KC_RPRN,   KC_AT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_CIRC, KC_SLSH, KC_ASTR, KC_BSLS, KC_TILD,                       LAMBDA,  KC_DLR, KC_LBRC, KC_RBRC, KC_QUES, XXXXXXX,
+      XXXXXXX, KC_CIRC, KC_PSLS, KC_ASTR, KC_BSLS, KC_TILD,                       LAMBDA,  KC_DLR, KC_LBRC, KC_RBRC, KC_QUES, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,     KC_DEL, _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -58,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [NUMS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX,    KC_6,    KC_5,    KC_4, KC_ASTR,                      KC_MINS,   KC_F4,   KC_F5,   KC_F6,  KC_F10, XXXXXXX,
+      XXXXXXX, KC_COLN,    KC_6,    KC_5,    KC_4, KC_ASTR,                      KC_MINS,   KC_F4,   KC_F5,   KC_F6,  KC_F10, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,  KC_DOT,    KC_3,    KC_2,    KC_1, KC_UNDS,                      KC_PLUS,   KC_F1,   KC_F2,   KC_F3,  KC_F11, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
