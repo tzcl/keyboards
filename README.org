@@ -8,7 +8,7 @@ Comfy split ergo keeb with RGBs and OLEDs.
 
 ** Features
 1. Home row mods -- really comfy, although I have issues rolling with my pinkies
-2. Repeat key for ergonomics, although I'm still getting used to it
+2. Repeat key (still getting used to it)
 3. Caps word for typing identifiers like =THIS_IS_A_CONSTANT=
 4. OLED graphics
    1. OS logo

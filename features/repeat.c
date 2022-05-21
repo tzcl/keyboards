@@ -6,7 +6,7 @@ uint16_t last_key(void) {
     return last_keycode;
 }
 
-void register_repeat_key(uint16_t keycode) {
+void set_repeat_key(uint16_t keycode) {
     // Get the base keycode of a mod or layer tap key
     switch (keycode) {
         case QK_MOD_TAP ... QK_MOD_TAP_MAX:

@@ -27,5 +27,5 @@ enum custom_keycodes {
 #define T_ESC LT(NUMS, KC_ESC)
 #define T_SPC LT(SYMS, KC_SPC)
 #define T_BSPC LT(SYMS, KC_BSPC)
-#define REP_LAYER NUMS
+#define T_DEL LT(NUMS, KC_DEL)
 #define T_ENT LT(NAV, KC_ENT)
