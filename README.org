@@ -1,4 +1,10 @@
 * crkbd
+Comfy split ergo keeb with RGBs and OLEDs.
+
+[[https://i.imgur.com/dwWJOlJ.jpg]]
+
+[[https://media.tenor.com/images/77d8121bf69026234988e62ec74de8a4/tenor.gif]]
+[[https://media.tenor.com/images/cc515b3b2c4c25195a7536c49a8b3369/tenor.gif]]
 
 ** Features
 1. Home row mods -- really comfy, although I have issues rolling with my pinkies
