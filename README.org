@@ -1,9 +1,11 @@
 * KBD67 Lite R2
 
-[[https://www.youtube.com/watch?v=TspN-VsGTFQ][One of the best budget boards]], the KBD67 Lite is great for getting started with mechanical keyboards. The 65% layout (67 keys in total) retains the arrow keys so it isn't too different from a full-size keyboard. It comes with RGBs and a hotswap PCB and the build process is relatively simple.
+[[https://www.youtube.com/watch?v=TspN-VsGTFQ][One of the best budget boards]], the KBD67 Lite is great for noobs. The 65% layout (67 keys in total) retains the arrow keys so it isn't too different from a full-size keyboard. It comes with RGBs and a hotswap PCB and the build process is relatively simple.
+
+[[https://i.imgur.com/crGSdwW.jpg]]
 
 ** Layout
-To avoid messing with years of muscle memory, I've kept things simple and stuck with =QWERTY= for my alphas. The main QMK features I use are:
+To avoid losing years of muscle memory I kept =QWERTY= for my alphas. The main QMK features I use are:
 1. [[https://docs.qmk.fm/#/mod_tap][Mod-tap]] to remap Caps Lock to Escape when tapped and Left Control when held
 2. [[https://getreuer.info/posts/keyboards/caps-word/index.html][Caps word]] to make it nicer to type identifiers like =THIS_IS_A_CONSTANT=
 3. [[https://getreuer.info/posts/keyboards/custom-shift-keys/index.html][Custom shift keys]] to remap =shift + bspc= to =del=
