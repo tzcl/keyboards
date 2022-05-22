@@ -32,13 +32,13 @@ enum layers { BASE, SYMS, NUMS, NAV };
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_GRV,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,     REP,  KC_EQL,
+       KC_GRV,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y, KC_QUOT,  KC_EQL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LPRN,     H_A,     H_R,     H_S,     H_T,    KC_G,                         KC_M,     H_N,     H_E,     H_I,     H_O, KC_SCLN,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LBRC,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH, KC_MINS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            T_TAB,   T_ESC,   T_SPC,     T_BSPC,   T_DEL,   T_ENT
+                                            T_TAB,   T_ESC,   T_SPC,     T_BSPC,     REP,   T_ENT
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_CIRC, KC_PSLS, KC_ASTR, KC_BSLS, KC_TILD,                       LAMBDA,  KC_DLR, KC_LBRC, KC_RBRC, KC_QUES, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,    _______, _______, _______
+                                          _______, _______, _______,     KC_DEL, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -125,6 +125,8 @@ static void catch_mods(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static uint32_t layer_timer = 0;
+
     if (!process_caps_word(keycode, record)) {
         return false;
     }
@@ -150,7 +152,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
         case REP:
-            update_repeat_key(record);
+            if (record->event.pressed) {
+                layer_timer = timer_read32();
+                layer_on(REP_LAYER);
+            } else {
+                layer_off(REP_LAYER);
+                if (timer_elapsed32(layer_timer) < TAPPING_TERM) {
+                    tap_repeat_key();
+                }
+            }
             return false;
         case SCOPE:
             if (record->event.pressed) {
