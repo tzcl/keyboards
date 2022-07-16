@@ -4,14 +4,13 @@
 
 /* Custom keys */
 enum custom_keycodes {
-  CAPS = SAFE_RANGE,
-  REP,
-  SCOPE,
-  LAMBDA,
-  DEL_BAK,
-  W_BAK,
-  W_FWD,
-  DEL_FWD,
+    CAPS = SAFE_RANGE,
+    SCOPE,
+    LAMBDA,
+    DEL_BAK,
+    W_BAK,
+    W_FWD,
+    DEL_FWD,
 };
 
 /* Key aliases */

@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keycodes.h"
 
 #ifdef OLED_ENABLE
-#include "features/gfx.h"
+#    include "features/gfx.h"
 #endif // OLED_ENABLE
 
 // Layers
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [NUMS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_UNDS,    KC_6,    KC_5,    KC_4, KC_PLUS,                      KC_AMPR,   KC_F4,   KC_F5,   KC_F6,  KC_F10, XXXXXXX,
+      XXXXXXX, KC_UNDS,    KC_6,    KC_5,    KC_4, KC_PLUS,                      KC_ASTR,   KC_F4,   KC_F5,   KC_F6,  KC_F10, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,  KC_DOT,    KC_3,    KC_2,    KC_1, KC_MINS,                      KC_SLSH,   KC_F1,   KC_F2,   KC_F3,  KC_F11, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -82,136 +82,119 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  return OLED_ROTATION_270;
+    return OLED_ROTATION_270;
 }
 
 static void oled_render_master(void) {
-  if (keymap_config.swap_lalt_lgui) {
-    render_mac_logo(0, 0);
-  } else {
-    render_windows_logo(0, 0);
-  }
+    if (keymap_config.swap_lalt_lgui) {
+        render_mac_logo(0, 0);
+    } else {
+        render_windows_logo(0, 0);
+    }
 
-  render_luna(0, 13);
+    render_luna(0, 13);
 }
 
 static void oled_render_slave(void) {
-  render_layers(0, 3);
-  render_wpm(0, 14);
+    render_layers(0, 3);
+    render_wpm(0, 14);
 }
 
 bool oled_task_user(void) {
-  luna_bark(caps_word_get());
+    luna_bark(caps_word_get());
 
-  if (is_keyboard_master()) {
-    oled_render_master();
-  } else {
-    oled_render_slave();
-  }
+    if (is_keyboard_master()) {
+        oled_render_master();
+    } else {
+        oled_render_slave();
+    }
 
-  return false;
+    return false;
 }
 #endif // OLED_ENABLE
 
 static void catch_mods(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-  case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-    keycode = keycode & 0xFF;
-    if (keycode == KC_SPC)
-      return; /* don't want to jump and sneak */
-    luna_sneak(record->event.pressed);
-  }
+    switch (keycode) {
+        case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            keycode = keycode & 0xFF;
+            if (keycode == KC_SPC) return; /* don't want to jump and sneak */
+            luna_sneak(record->event.pressed);
+    }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  static uint32_t layer_timer = 0;
+    if (!process_caps_word(keycode, record)) {
+        return false;
+    }
 
-  if (!process_caps_word(keycode, record)) {
-    return false;
-  }
+    catch_mods(keycode, record);
 
-  catch_mods(keycode, record);
+    // Get the base keycode of a mod or layer tap key
+    switch (keycode) {
+        case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            keycode = keycode & 0xFF;
+    }
 
-  // Get the base keycode of a mod or layer tap key
-  switch (keycode) {
-  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-  case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-    keycode = keycode & 0xFF;
-  }
+    switch (keycode) {
+        case KC_SPC:
+            if (record->event.pressed) {
+                luna_jump();
+            }
+            break;
+        case CAPS:
+            if (record->event.pressed) {
+                caps_word_set(true);
+            }
+            return false;
+        case SCOPE:
+            if (record->event.pressed) {
+                SEND_STRING("::");
+            }
+            return false;
+        case LAMBDA:
+            if (record->event.pressed) {
+                SEND_STRING("lambda ");
+            }
+            return false;
+        case DEL_BAK:
+            if (record->event.pressed) {
+                if (keymap_config.swap_lalt_lgui) {
+                    SEND_STRING(SS_LALT(SS_TAP(X_BSPC)));
+                } else {
+                    SEND_STRING(SS_LCTL(SS_TAP(X_BSPC)));
+                }
+            }
+            return false;
+        case W_BAK:
+            if (record->event.pressed) {
+                if (keymap_config.swap_lalt_lgui) {
+                    SEND_STRING(SS_LALT(SS_TAP(X_LEFT)));
+                } else {
+                    SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)));
+                }
+            }
+            return false;
+        case W_FWD:
+            if (record->event.pressed) {
+                if (keymap_config.swap_lalt_lgui) {
+                    SEND_STRING(SS_LALT(SS_TAP(X_RGHT)));
+                } else {
+                    SEND_STRING(SS_LCTL(SS_TAP(X_RGHT)));
+                }
+            }
+            return false;
+        case DEL_FWD:
+            if (record->event.pressed) {
+                if (keymap_config.swap_lalt_lgui) {
+                    SEND_STRING(SS_LALT(SS_TAP(X_DEL)));
+                } else {
+                    SEND_STRING(SS_LCTL(SS_TAP(X_DEL)));
+                }
+            }
+            return false;
+    }
 
-  switch (keycode) {
-  case KC_SPC:
-    if (record->event.pressed) {
-      luna_jump();
-    }
-    break;
-  case CAPS:
-    if (record->event.pressed) {
-      caps_word_set(true);
-    }
-    return false;
-  case REP:
-    if (record->event.pressed) {
-      layer_timer = timer_read32();
-      layer_on(REP_LAYER);
-    } else {
-      layer_off(REP_LAYER);
-      if (timer_elapsed32(layer_timer) < TAPPING_TERM) {
-        tap_repeat_key();
-      }
-    }
-    return false;
-  case SCOPE:
-    if (record->event.pressed) {
-      SEND_STRING("::");
-    }
-    return false;
-  case LAMBDA:
-    if (record->event.pressed) {
-      SEND_STRING("lambda ");
-    }
-    return false;
-  case DEL_BAK:
-    if (record->event.pressed) {
-      if (keymap_config.swap_lalt_lgui) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_BSPC)))
-      } else {
-        SEND_STRING(SS_LALT(SS_TAP(X_BSPC)))
-      }
-    }
-  case W_BAK:
-    if (record->event.pressed) {
-      if (keymap_config.swap_lalt_lgui) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)))
-      } else {
-        SEND_STRING(SS_LALT(SS_TAP(X_LEFT)))
-      }
-    }
-    return false;
-  case W_FWD:
-    if (record->event.pressed) {
-      if (keymap_config.swap_lalt_lgui) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_RGHT)))
-      } else {
-        SEND_STRING(SS_LALT(SS_TAP(X_RGHT)))
-      }
-    }
-    return false;
-  case DEL_FWD:
-    if (record->event.pressed) {
-      if (keymap_config.swap_lalt_lgui) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_DEL)))
-      } else {
-        SEND_STRING(SS_LALT(SS_TAP(X_DEL)))
-      }
-    }
-    return false;
-  }
-
-  if (record->event.pressed) {
-    set_repeat_key(keycode);
-  }
-
-  return true;
+    return true;
 }
