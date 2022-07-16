@@ -1,13 +1,13 @@
 * crkbd
 Comfy split ergo keeb with RGBs and OLEDs.
 
-[[https://i.imgur.com/dwWJOlJ.jpg]]
+[[https://i.imgur.com/1qbXIN0.jpg]]
 
 [[https://media.tenor.com/images/77d8121bf69026234988e62ec74de8a4/tenor.gif]]
 [[https://media.tenor.com/images/cc515b3b2c4c25195a7536c49a8b3369/tenor.gif]]
 
 ** Features
-1. Home row mods -- really comfy, although I have issues rolling with my pinkies
+1. Colemak with home row mods -- really comfy, although I have issues rolling with my pinkies
 2. Repeat key -- still getting used to it
 3. Caps word for typing identifiers like =THIS_IS_A_CONSTANT=
 4. OLED graphics
