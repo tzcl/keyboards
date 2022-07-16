@@ -4,13 +4,18 @@
 
 /* Custom keys */
 enum custom_keycodes {
-    CAPS = SAFE_RANGE,
-    REP,
-    SCOPE,
-    LAMBDA,
+  CAPS = SAFE_RANGE,
+  REP,
+  SCOPE,
+  LAMBDA,
+  DEL_BAK,
+  W_BAK,
+  W_FWD,
+  DEL_FWD,
 };
 
 /* Key aliases */
+
 /* Home row mods */
 #define H_A LGUI_T(KC_A)
 #define H_R LALT_T(KC_R)
@@ -27,5 +32,5 @@ enum custom_keycodes {
 #define T_ESC LT(NUMS, KC_ESC)
 #define T_SPC LT(SYMS, KC_SPC)
 #define T_BSPC LT(SYMS, KC_BSPC)
-#define REP_LAYER NUMS
+#define T_DEL LT(NUMS, KC_DEL)
 #define T_ENT LT(NAV, KC_ENT)
