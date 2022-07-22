@@ -1,7 +1,8 @@
 * Keyboards
 
 I'm currently using:
-1. [[https://github.com/tzcl/keyboards/tree/kbd67][KBD67 Lite R2]] with Akko Matcha Greens
-2. [[https://github.com/tzcl/keyboards/tree/crkbd][crkbd v3]] with U4T Bobas and Gat Yellows
+1. [[https://github.com/tzcl/zmk-config][rae-dux]] with Kailh choc reds
+2. [[https://github.com/tzcl/keyboards/tree/kbd67][KBD67 Lite R2]] with Akko matcha greens
+3. [[https://github.com/tzcl/keyboards/tree/crkbd][crkbd v3]] with Gateron yellows
 
 At some point, I plan to use [[https://github.com/kmonad/kmonad][kmonad]] to customise my laptop keyboards.
