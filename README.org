@@ -5,4 +5,5 @@ I'm currently using:
 2. [[https://github.com/tzcl/keyboards/tree/kbd67][KBD67 Lite R2]] with Akko matcha greens
 3. [[https://github.com/tzcl/keyboards/tree/crkbd][crkbd v3]] with Gateron yellows
 
-At some point, I plan to use [[https://github.com/kmonad/kmonad][kmonad]] to customise my laptop keyboards.
+If you're building a keyboard using the [[Fuyu PCB][https://github.com/zykrah/fuyu]], I've
+uploaded the firmware to [[fuyu][http:s//github.com/tzcl/keyboards/tree/fuyu]].
