@@ -6,4 +6,4 @@ I'm currently using:
 3. [[https://github.com/tzcl/keyboards/tree/crkbd][crkbd v3]] with Gateron yellows
 
 If you're building a keyboard using the [[https://github.com/zykrah/fuyu][Fuyu PCB]], I've
-uploaded the firmware to [[https://github.com/tzcl/keyboards/tree/fuyu][fuyu]].
+uploaded the VIAL firmware to [[https://github.com/tzcl/keyboards/tree/fuyu][fuyu]].
